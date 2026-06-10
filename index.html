@@ -69,6 +69,19 @@
   =========================================================== */
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 
+  /* ---------- LANGUAGE SWITCH ---------- */
+  .language-switch{position:fixed;top:18px;right:22px;z-index:80;display:flex;align-items:center;gap:4px;
+    padding:5px;border:1px solid var(--stroke);border-radius:100px;
+    background:linear-gradient(150deg,rgba(255,255,255,.86),rgba(255,255,255,.58));
+    backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);
+    box-shadow:var(--shadow),inset 0 1px 0 var(--glass-hi)}
+  .language-switch button{min-width:42px;padding:7px 10px;border:0;border-radius:100px;cursor:pointer;
+    background:transparent;color:var(--ink-dim);font:700 12px/1 var(--font);letter-spacing:.08em;
+    transition:color .25s,background .25s,box-shadow .25s}
+  .language-switch button:hover{color:var(--ink)}
+  .language-switch button.active{color:#fff;background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    box-shadow:0 7px 16px -7px rgba(79,109,255,.7)}
+
   /* ---------- HERO ---------- */
   header.hero{padding:84px 0 38px;text-align:center;position:relative}
   .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.16em;
@@ -419,6 +432,7 @@
     .flow .arrow{transform:rotate(90deg)}
     .callout{padding:18px 18px;gap:12px}
     .sev-legend{grid-template-columns:1fr}
+    .language-switch{top:10px;right:10px}
   }
   @media(max-width:400px){
     .wrap{padding:0 12px}
@@ -435,6 +449,11 @@
 </head>
 <body>
 
+<div class="language-switch" role="group" aria-label="Language">
+  <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+  <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+</div>
+
 <div class="aurora">
   <div class="blob b1"></div>
   <div class="blob b2"></div>
@@ -448,13 +467,13 @@
   <header class="hero">
     <div class="eyebrow"><span class="dot"></span> Supervisor Manual</div>
     <h1 class="title">The Supervisor<br><span class="grad">Operations Role</span></h1>
-    <p class="lede">A simple guide to what the Supervisor does day to day: check the week's plan, build the daily plan,
-      run the operation in the field, and keep an eye on performance — all without touching finance or system setup.</p>
+    <p class="lede">A practical guide to the Supervisor role: build and adjust the weekly schedule, run the daily
+      operation, follow performance and submit requests — without access to finance or master-data setup.</p>
     <div class="hero-stats">
-      <div class="stat"><b>4</b><span>Operation Areas</span></div>
+      <div class="stat"><b>12</b><span>Allowed Routes</span></div>
       <div class="stat"><b>4</b><span>Depots</span></div>
-      <div class="stat"><b>7</b><span>Days in View</span></div>
-      <div class="stat"><b>0</b><span>Finance Access</span></div>
+      <div class="stat"><b>7</b><span>Days per Week</span></div>
+      <div class="stat"><b>0</b><span>Finance Management</span></div>
     </div>
   </header>
 
@@ -472,7 +491,7 @@
       <button class="tab" data-tab="performance">
         <svg viewBox="0 0 24 24"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>Performance</button>
       <button class="tab" data-tab="limits">
-        <svg viewBox="0 0 24 24"><path d="M18.364 5.636 5.636 18.364M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>Off-Limits</button>
+        <svg viewBox="0 0 24 24"><path d="M18.364 5.636 5.636 18.364M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>Access Rules</button>
       <button class="tab" data-tab="workflow">
         <svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>Your Week</button>
       <button class="tab" data-tab="practices">
@@ -491,18 +510,17 @@
     ================================================================== -->
     <section class="panel active" id="overview">
       <div class="panel-head"><span class="num">00</span><h2>Your Role at a Glance</h2></div>
-      <p class="panel-intro">The Supervisor is the operations lead. You check the week's plan, set up each day, run the
-        operation in the field and follow how it is going. You work side by side with the Administrator on everything
-        operational — but money matters and system setup stay with the Administrator. This manual explains, in plain
-        language, what you do, what you can open, what is off-limits and how a normal week flows.</p>
+      <p class="panel-intro">The Supervisor is the operations manager without a financial portfolio. You plan the week,
+        generate and adjust schedules, run the day, transition operations and follow results. Your workspace is focused
+        on planning, execution, operational reporting, personal records and requests.</p>
 
       <div class="parts">
         <div class="part"><div class="pn">Part 1</div><h4>What you do</h4>
-          <p>Check the week's plan, build the daily plan, run the day and watch performance across the depots.</p></div>
+          <p>Generate and adjust the week, build the daily plan, run the day and watch operational performance.</p></div>
         <div class="part"><div class="pn">Part 2</div><h4>What you can open</h4>
-          <p>Operational screens only: planning, daily plan, reports and performance — nothing financial.</p></div>
-        <div class="part"><div class="pn">Part 3</div><h4>What stays with Admin</h4>
-          <p>Invoices, deductions, financial reports and system setup are not part of your access.</p></div>
+          <p>Twelve routes covering operations, performance, personal deductions, invoices and requests.</p></div>
+        <div class="part"><div class="pn">Part 3</div><h4>Access boundaries</h4>
+          <p>Master-data setup, financial management, external deductions and request decisions are outside your workspace.</p></div>
       </div>
 
       <div class="grid">
@@ -512,7 +530,7 @@
           <p style="margin-bottom:18px">Your work moves along one simple chain — from organizing the week to following
             the result. Each step feeds the next.</p>
           <div class="flow">
-            <div class="node"><b>Week Planner</b><span>Check the week (view)</span></div>
+            <div class="node"><b>Week Planner</b><span>Generate and adjust the week</span></div>
             <div class="arrow">→</div>
             <div class="node"><b>Daily Game Plan</b><span>Set up each day</span></div>
             <div class="arrow">→</div>
@@ -567,17 +585,17 @@
     ================================================================== -->
     <section class="panel" id="role">
       <div class="panel-head"><span class="num">01</span><h2>What You Can Do</h2></div>
-      <p class="panel-intro">As a Supervisor you have full control over the daily operation. In plain terms: you can
-        build, run and adjust the operation, and follow the results — but you cannot see or change anything financial.
-        The Week Planner you can <strong>view</strong>, to know what is coming.</p>
+      <p class="panel-intro">As a Supervisor you can plan, create, edit, transition and close operational work. The Week
+        Planner and Daily Game Plan are working screens, not read-only dashboards. Your scope is still controlled by
+        depot assignment, date and status, and financial or master-data actions remain blocked.</p>
 
       <div class="grid">
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
-          <h3>See the week ahead</h3>
-          <p>Open the Week Planner to check how drivers, vehicles and routes are arranged for the seven days ahead. You
-            read it to plan your day — the week itself is set up by the Administrator.</p>
-          <span class="tag">View only</span>
+          <h3>Build the week</h3>
+          <p>Use the seven-day Week Planner to generate schedules, add or edit allocations, record Day Off, add
+            Not Allocated or Ad-Hoc items, copy a week, finish items in bulk and export operational data.</p>
+          <span class="tag">Full operational access</span>
         </div>
 
         <div class="card">
@@ -607,9 +625,20 @@
           <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 8v4M12 16h.01"/></svg>
           <div>
             <h4>One-sentence summary</h4>
-            <p>You plan the week, build the daily plan, run and adjust the operation, and review performance — and that
-              is the full scope of your role. Anything to do with money or system setup belongs to the Administrator.</p>
+            <p>You generate and adjust the weekly schedule, run and close the daily operation, review performance,
+              consult your own deductions and invoices, and create requests.</p>
           </div>
+        </div>
+
+        <div class="tbl-wrap">
+          <table class="ltable">
+            <thead><tr><th>Functional area</th><th>Supervisor activity</th></tr></thead>
+            <tbody>
+              <tr><td>Planning</td><td><span class="ar">→</span>Generate, adjust, finish and export the weekly schedule.</td></tr>
+              <tr><td>Daily operation</td><td><span class="ar">→</span>Create, edit, transition, monitor and close operational records.</td></tr>
+              <tr><td>Follow-up</td><td><span class="ar">→</span>Review reports, performance, personal deductions, invoices and requests.</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -619,15 +648,17 @@
     ================================================================== -->
     <section class="panel" id="screens">
       <div class="panel-head"><span class="num">02</span><h2>The Screens You Open</h2></div>
-      <p class="panel-intro">These are the screens that make up your daily workspace. If you ever land on a screen
-        that is not yours to use, the system simply brings you back to the Daily Game Plan — no harm done.</p>
+      <p class="panel-intro">The Supervisor whitelist contains 12 routes. Any path outside that list redirects to the
+        Daily Game Plan. Some operational functions exist through the DGP flow even when their dedicated page is not
+        available in the Supervisor navigation.</p>
 
       <div class="grid">
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
           <h3>Home &amp; Week Planner</h3>
-          <p>Your starting dashboard plus the Week Planner, where you check how the seven days ahead are arranged.</p>
-          <span class="tag">View the week</span>
+          <p>Your operational portal and the full seven-day planning workspace, including Generate Week, manual
+            allocation, Day Off, Ad-Hoc, status changes and export.</p>
+          <span class="tag">Plan the week</span>
         </div>
 
         <div class="card">
@@ -653,17 +684,35 @@
 
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <h3>Requests Inbox</h3>
-          <p>Where requests come in for you to review. A small badge shows you how many are still pending.</p>
-          <span class="tag">Requests</span>
+          <h3>Requests</h3>
+          <p>Create and follow your own Day Off, Holiday and Pre-Payment requests. The dedicated Requests Inbox is not
+            in the Supervisor workspace, so approval, editing and rejection are not available here.</p>
+          <span class="tag">Create &amp; track</span>
+        </div>
+
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+          <h3>Personal &amp; monthly views</h3>
+          <p>You can open Daily Performance Insight, Current Performance, Current Month, Subcontractor, Mobile Invoice
+            and Deductions. Deductions are restricted to your own user and service partner.</p>
+          <span class="tag">Own protected data</span>
+        </div>
+
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg></div>
+          <h3>Daily Operations Management</h3>
+          <p>You can manage the day's operation records too — including day-off entries — but you reach this through the
+            Daily Game Plan, not as a separate screen of its own.</p>
+          <span class="tag">Through the day plan</span>
         </div>
 
         <div class="callout info">
           <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
           <div>
             <h4>What you see in the menu</h4>
-            <p>Your side menu shows the Operations area — Week Planner, Daily Game Plan, reports and Vendor
-              Performance. The Financial area simply does not appear, because it is not part of your role.</p>
+            <p>Your allowed routes are Home, Week Planner, Daily Game Plan, Daily Operations Reports, Vendor
+              Performance, Daily Performance Insight, Subcontractor, Deductions, Current Month, Current Performance,
+              Mobile Invoice and Requests. The financial-management and master-data sections do not appear.</p>
           </div>
         </div>
       </div>
@@ -674,8 +723,9 @@
     ================================================================== -->
     <section class="panel" id="actions">
       <div class="panel-head"><span class="num">03</span><h2>What You Do Day to Day</h2></div>
-      <p class="panel-intro">The Daily Game Plan is where you create, edit and adjust everything the operation needs.
-        The Week Planner you only read, to see what is coming. Here is what that looks like in practice.</p>
+      <p class="panel-intro">The Week Planner defines the future schedule; the Daily Game Plan turns it into the real
+        operation. You can create and adjust work in both, subject to future-date, depot-assignment, conflict and
+        status rules.</p>
 
       <div class="grid">
         <div class="card wide">
@@ -698,26 +748,26 @@
 
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
-          <h3>In the Week Planner — view only</h3>
-          <p>You open the seven-day grid to see how drivers, routes and vehicles are arranged for the week, so you can
-            prepare your day. You read it; the week itself is set up by the Administrator.</p>
-          <span class="tag">View only</span>
+          <h3>In the Week Planner — plan and adjust</h3>
+          <p>Generate the week, edit future allocations, use drag and drop, copy to next week, add Day Off before
+            generation, add Ad-Hoc or Not Allocated records, and finish or export the plan.</p>
+          <span class="tag">Operational planning</span>
         </div>
 
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 5-7"/></svg></div>
-          <h3>Move &amp; export</h3>
-          <p>Move operations through their stages during the day, and export the week's plan when you need to share or
-            keep a copy.</p>
-          <span class="tag">Broad operations</span>
+          <h3>Generate with care</h3>
+          <p>Generate Week combines existing active vendors, default routes and vehicles. It can leave a partial week
+            if interrupted, so check what was created before running it again.</p>
+          <span class="tag">Batch operation</span>
         </div>
 
         <div class="callout info">
           <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           <div>
-            <h4>You can chat with anyone</h4>
-            <p>You can message Administrators, other Supervisors and drivers. Drivers, on their side, can only message
-              an Administrator or a Supervisor — so you are always reachable for the team.</p>
+            <h4>Operational chat</h4>
+            <p>Use chat to communicate with the operational team, coordinate schedule changes, clarify incidents and
+              keep day-to-day decisions aligned.</p>
           </div>
         </div>
       </div>
@@ -763,44 +813,52 @@
     </section>
 
     <!-- =================================================================
-         OFF-LIMITS
+         ACCESS RULES
     ================================================================== -->
     <section class="panel" id="limits">
-      <div class="panel-head"><span class="num">05</span><h2>What Is Off-Limits</h2></div>
-      <p class="panel-intro">A few areas are kept for the Administrator only. This is not a restriction on you doing
-        your job — it just keeps each role focused. Here is what you will not see, and why that is normal.</p>
+      <div class="panel-head"><span class="num">05</span><h2>Availability &amp; Access Rules</h2></div>
+      <p class="panel-intro">The Supervisor workspace is centered on operations. These functions do not appear in the
+        available navigation and do not affect the planning, execution and reporting tasks covered by this manual.</p>
 
       <div class="grid">
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
-          <h3>Finance</h3>
-          <p>Invoices, financial reports, deductions and disbursements are not part of your access. The Financial area
-            simply does not show in your menu.</p>
-          <span class="tag">Admin only</span>
+          <h3>Financial management</h3>
+          <p>Invoice management, financial reports, administrative deductions, disbursements and recharges are not
+            part of your access. Your own Deductions and Mobile Invoice views remain available for consultation.</p>
+          <span class="tag">Not available</span>
         </div>
 
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
           <h3>System setup</h3>
-          <p>Registering vendors, vehicles, contracts and routes is part of system setup, which is handled by the
-            Administrator. You use what is set up there, but you do not change it.</p>
+          <p>The workspace uses existing vendors, vehicles, contracts, routes and operational parameters. Creating or
+            changing those master records is not available from the Supervisor screens.</p>
           <span class="tag">Master data</span>
         </div>
 
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg></div>
           <h3>Final billing review</h3>
-          <p>The final review screen that prepares operations for billing belongs to the Administrator. Your reports
-            and insights stay fully open to you — that is a different thing.</p>
-          <span class="tag">Admin only</span>
+          <p>The final billing-preparation screen is not available. Operational reports and performance insights remain
+            available for reviewing the work completed.</p>
+          <span class="tag">Not available</span>
         </div>
 
         <div class="card">
           <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <h3>Other people's private data</h3>
-          <p>You only see your own personal entries, never another user's. The operation is shared; private details
-            stay private to each person.</p>
+          <h3>Protected personal data</h3>
+          <p>Deductions and similar private entries are limited to your own records and service partner. Operational
+            information remains available according to the selected depot and period.</p>
           <span class="tag">Privacy</span>
+        </div>
+
+        <div class="card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M9 10l2 2 4-4"/></svg></div>
+          <h3>Request decisions</h3>
+          <p>You can create and track requests, but the dedicated Requests Inbox is outside your whitelist. Approving,
+            editing and rejecting requests are not available from your workspace.</p>
+          <span class="tag">Track only</span>
         </div>
 
         <div class="callout">
@@ -827,10 +885,10 @@
           <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
           <h3>Your four steps</h3>
           <div class="steps" style="margin-top:6px">
-            <div class="step"><p><strong>Check the week.</strong> In the Week Planner, see how drivers, routes and vehicles are arranged for the days ahead, so you know what is coming.</p></div>
-            <div class="step"><p><strong>Build the day.</strong> In the Daily Game Plan, set up the day's operations and get them ready to run.</p></div>
+            <div class="step"><p><strong>Build the week.</strong> Record known Day Off items, run Generate Week, check completeness, then adjust routes, vehicles, reserves and confirmed ad-hocs.</p></div>
+            <div class="step"><p><strong>Open the day.</strong> In the Daily Game Plan, load the planned work and add substitutions, urgent changes or last-minute ad-hocs.</p></div>
             <div class="step"><p><strong>Run and monitor.</strong> Move operations along — from not started, to working or off, to finished — while watching the reports.</p></div>
-            <div class="step"><p><strong>Review and handle requests.</strong> Check Vendor Performance and clear the Requests Inbox to keep things moving.</p></div>
+            <div class="step"><p><strong>Review and follow up.</strong> Check operational reports and Vendor Performance, then create or track requests that still need a decision.</p></div>
           </div>
         </div>
 
@@ -863,16 +921,18 @@
       <div class="grid">
         <div class="card wide">
           <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.2-8.6"/><path d="M3 3v6h6"/></svg></div>
-          <h3>How a day moves — and locks</h3>
-          <p>Every day goes through three stages. Once a day is finished it <strong>cannot be reopened</strong> —
-            that is the most important thing to remember.</p>
+          <h3>How an operation moves — and locks</h3>
+          <p>Status changes follow a fixed state machine. Once an operation is Finished it
+            <strong>cannot be reopened</strong> — that is the most important thing to remember.</p>
           <div class="lifecycle">
-            <div class="lc-stage">Not Started<span>nothing recorded yet</span></div>
+            <div class="lc-stage">NotAllocated<span>awaiting a final assignment</span></div>
             <div class="lc-arrow">→</div>
-            <div class="lc-stage">In Progress<span>day being operated</span></div>
+            <div class="lc-stage">Working<span>operation in progress</span></div>
             <div class="lc-arrow">→</div>
             <div class="lc-stage end">Finished<span>locked · final</span></div>
           </div>
+          <p style="margin-top:10px">A NotAllocated operation may also move to <strong>OFF</strong>; OFF can return to
+            Working. Finished has no outgoing transition.</p>
           <div class="sev-legend">
             <span class="sev crit"><span class="d"></span>Critical · can stall the day or affect records</span>
             <span class="sev warn"><span class="d"></span>Attention · slows you down or needs care</span>
@@ -889,8 +949,8 @@
           <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
           <h3>When you check the week</h3>
           <ul class="cautions">
-            <li><span class="sev warn"><span class="d"></span>Attention</span><p>If the week looks wrong or incomplete, it is set up by the Administrator — let them know instead of trying to change it yourself.</p></li>
-            <li><span class="sev minor"><span class="d"></span>Minor</span><p>Read the week before you build the day, so your Daily Game Plan matches what is planned.</p></li>
+            <li><span class="sev warn"><span class="d"></span>Attention</span><p>Enter known Day Off records before Generate Week, or the driver may be allocated to the default route.</p></li>
+            <li><span class="sev crit"><span class="d"></span>Critical</span><p>If generation is interrupted, inspect the week before retrying so you do not duplicate a partially generated schedule.</p></li>
           </ul>
         </div>
 
@@ -907,7 +967,7 @@
           <div class="ic"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
           <h3>About the team setup</h3>
           <ul class="cautions">
-            <li><span class="sev warn"><span class="d"></span>Attention</span><p>If a driver has no usual route or vehicle set, they <strong>cannot be placed automatically</strong> — ask the Administrator to complete their record.</p></li>
+            <li><span class="sev warn"><span class="d"></span>Attention</span><p>If a driver has no usual route or vehicle set, they <strong>cannot be placed automatically</strong>. Report the missing setup for correction.</p></li>
             <li><span class="sev minor"><span class="d"></span>Minor</span><p>A driver marked as "Spare" or inactive will not appear in the schedule. That is expected, not a bug.</p></li>
           </ul>
         </div>
@@ -917,8 +977,8 @@
             <thead><tr><th>What you might see</th><th>What it means</th></tr></thead>
             <tbody>
               <tr><td>"I can't edit this day"</td><td><span class="ar">→</span>The day has already passed or is already finished.</td></tr>
-              <tr><td>"A driver vanished from the schedule"</td><td><span class="ar">→</span>They are inactive or marked as "Spare".</td></tr>
-              <tr><td>"The day won't open"</td><td><span class="ar">→</span>There is a pending day in the last seven days to clear first.</td></tr>
+              <tr><td>"A driver vanished from the schedule"</td><td><span class="ar">→</span>They may be inactive, missing a route or vehicle, or marked as "Spare".</td></tr>
+              <tr><td>"The day won't open"</td><td><span class="ar">→</span>There is a pending day in the last seven days, or no authorized depot leader is assigned.</td></tr>
               <tr><td>"Finance doesn't show up"</td><td><span class="ar">→</span>Expected — finance is not part of your role.</td></tr>
               <tr><td>"It sent me back to the Daily Game Plan"</td><td><span class="ar">→</span>You opened an area that is not yours; it just returns you home.</td></tr>
             </tbody>
@@ -931,13 +991,298 @@
 
   <footer>
     <p><b>Logixsphere</b> — Supervisor Manual · Operations Role</p>
-    <p style="margin-top:6px">Plan the week → Build the day → Run the operation → Follow performance.</p>
+    <p style="margin-top:6px">Generate the week → Open the day → Run the operation → Follow performance.</p>
     <p style="margin-top:6px">© 2026 BA Express / Logix Sphere. <b>v2026-06-05</b></p>
   </footer>
 
 </div>
 
 <script>
+  /* ---------- LANGUAGE ---------- */
+  const ptTranslations = new Map(Object.entries({
+    "Supervisor Manual":"Manual do Supervisor",
+    "The Supervisor":"O Supervisor",
+    "Operations Role":"Função Operacional",
+    "A practical guide to the Supervisor role: build and adjust the weekly schedule, run the daily operation, follow performance and submit requests — without access to finance or master-data setup.":"Um guia prático da função de Supervisor: monte e ajuste a escala semanal, conduza a operação diária, acompanhe o desempenho e envie solicitações — sem acesso à gestão financeira ou aos cadastros mestres.",
+    "Allowed Routes":"Rotas Permitidas",
+    "Depots":"Depósitos",
+    "Days per Week":"Dias por Semana",
+    "Finance Management":"Gestão Financeira",
+    "Overview":"Visão Geral",
+    "Your Role":"Sua Função",
+    "Your Screens":"Suas Telas",
+    "Daily Actions":"Ações Diárias",
+    "Performance":"Desempenho",
+    "Access Rules":"Regras de Acesso",
+    "Your Week":"Sua Semana",
+    "Tips & Cautions":"Dicas e Cuidados",
+    "Your Role at a Glance":"Sua Função em Resumo",
+    "The Supervisor is the operations manager without a financial portfolio. You plan the week, generate and adjust schedules, run the day, transition operations and follow results. Your workspace is focused on planning, execution, operational reporting, personal records and requests.":"O Supervisor gerencia a operação sem atuar na carteira financeira. Você planeja a semana, gera e ajusta escalas, conduz o dia, altera o status das operações e acompanha os resultados. Seu ambiente é voltado ao planejamento, à execução, aos relatórios operacionais, aos registros pessoais e às solicitações.",
+    "Part 1":"Parte 1",
+    "Part 2":"Parte 2",
+    "Part 3":"Parte 3",
+    "What you do":"O que você faz",
+    "Generate and adjust the week, build the daily plan, run the day and watch operational performance.":"Gere e ajuste a semana, monte o plano diário, conduza o dia e acompanhe o desempenho operacional.",
+    "What you can open":"O que você pode acessar",
+    "Twelve routes covering operations, performance, personal deductions, invoices and requests.":"Doze rotas que abrangem operação, desempenho, deduções pessoais, faturas e solicitações.",
+    "Access boundaries":"Limites de acesso",
+    "Master-data setup, financial management, external deductions and request decisions are outside your workspace.":"Cadastros mestres, gestão financeira, deduções externas e decisões sobre solicitações ficam fora do seu ambiente.",
+    "The path you follow":"O fluxo que você segue",
+    "Your work moves along one simple chain — from organizing the week to following the result. Each step feeds the next.":"Seu trabalho segue uma cadeia simples — da organização da semana ao acompanhamento do resultado. Cada etapa alimenta a seguinte.",
+    "Generate and adjust the week":"Gerar e ajustar a semana",
+    "Set up each day":"Preparar cada dia",
+    "Run the Day":"Conduzir o Dia",
+    "Adjust live in the field":"Ajustar em tempo real",
+    "Follow the result":"Acompanhar o resultado",
+    "Why your role matters":"Por que sua função é importante",
+    "The day starts on time":"O dia começa no horário",
+    "Drivers and routes line up":"Motoristas e rotas ficam alinhados",
+    "Problems get fixed fast":"Problemas são resolvidos rapidamente",
+    "Records stay clean for the team":"Os registros permanecem organizados",
+    "Flip card":"Virar cartão",
+    "You work across 4 depots":"Você atua em 4 depósitos",
+    "The operation is split by depot. You plan and run the day in each one, and BAOP is the central base used for internal operations.":"A operação é dividida por depósito. Você planeja e conduz o dia em cada um deles, e BAOP é a base central usada nas operações internas.",
+    "Operational depot":"Depósito operacional",
+    "Central base · internal ops":"Base central · operações internas",
+    "What You Can Do":"O Que Você Pode Fazer",
+    "As a Supervisor you can plan, create, edit, transition and close operational work. The Week Planner and Daily Game Plan are working screens, not read-only dashboards. Your scope is still controlled by depot assignment, date and status, and financial or master-data actions remain blocked.":"Como Supervisor, você pode planejar, criar, editar, alterar status e encerrar trabalhos operacionais. O Week Planner e o Daily Game Plan são telas de trabalho, não painéis apenas para consulta. Seu escopo continua controlado pelo depósito, pela data e pelo status.",
+    "Build the week":"Montar a semana",
+    "Use the seven-day Week Planner to generate schedules, add or edit allocations, record Day Off, add Not Allocated or Ad-Hoc items, copy a week, finish items in bulk and export operational data.":"Use o Week Planner de sete dias para gerar escalas, adicionar ou editar alocações, registrar folgas, incluir itens não alocados ou Ad-Hoc, copiar uma semana, finalizar itens em lote e exportar dados operacionais.",
+    "Full operational access":"Acesso operacional completo",
+    "Run the daily plan":"Conduzir o plano diário",
+    "Open the day, start the operation, make changes as they come up — absences, swaps, route changes — and close the day when it is done.":"Abra o dia, inicie a operação, faça ajustes conforme surgirem — ausências, trocas e mudanças de rota — e encerre o dia quando terminar.",
+    "Daily operation":"Operação diária",
+    "Move operations along":"Avançar as operações",
+    "Mark drivers as working or off, finish records, and keep each operation moving through its normal stages during the day.":"Marque motoristas como trabalhando ou de folga, finalize registros e mantenha cada operação avançando por suas etapas normais durante o dia.",
+    "Status control":"Controle de status",
+    "Follow performance":"Acompanhar o desempenho",
+    "Look at operational reports and vendor performance to see how drivers and depots are doing over the period.":"Consulte relatórios operacionais e o desempenho dos prestadores para verificar os resultados dos motoristas e depósitos no período.",
+    "Reports":"Relatórios",
+    "One-sentence summary":"Resumo em uma frase",
+    "You generate and adjust the weekly schedule, run and close the daily operation, review performance, consult your own deductions and invoices, and create requests.":"Você gera e ajusta a escala semanal, conduz e encerra a operação diária, analisa o desempenho, consulta suas deduções e faturas e cria solicitações.",
+    "Functional area":"Área funcional",
+    "Supervisor activity":"Atividade do Supervisor",
+    "Planning":"Planejamento",
+    "Generate, adjust, finish and export the weekly schedule.":"Gerar, ajustar, finalizar e exportar a escala semanal.",
+    "Create, edit, transition, monitor and close operational records.":"Criar, editar, alterar status, monitorar e encerrar registros operacionais.",
+    "Follow-up":"Acompanhamento",
+    "Review reports, performance, personal deductions, invoices and requests.":"Analisar relatórios, desempenho, deduções pessoais, faturas e solicitações.",
+    "The Screens You Open":"As Telas Que Você Acessa",
+    "The Supervisor whitelist contains 12 routes. Any path outside that list redirects to the Daily Game Plan. Some operational functions exist through the DGP flow even when their dedicated page is not available in the Supervisor navigation.":"A lista de acesso do Supervisor contém 12 rotas. Qualquer caminho fora dessa lista redireciona para o Daily Game Plan. Algumas funções operacionais são acessadas pelo fluxo do DGP, mesmo quando não possuem uma página própria na navegação.",
+    "Home & Week Planner":"Home e Week Planner",
+    "Your operational portal and the full seven-day planning workspace, including Generate Week, manual allocation, Day Off, Ad-Hoc, status changes and export.":"Seu portal operacional e o ambiente completo de planejamento de sete dias, incluindo Generate Week, alocação manual, folgas, Ad-Hoc, mudanças de status e exportação.",
+    "Plan the week":"Planejar a semana",
+    "The heart of your day. This is where you set up, run and close the real operation in the field.":"O centro do seu dia. É aqui que você prepara, conduz e encerra a operação real em campo.",
+    "Run the day":"Conduzir o dia",
+    "Reports & Insights":"Relatórios e Análises",
+    "Operational reports and the daily performance view, so you can see how the operation is going.":"Relatórios operacionais e a visão de desempenho diário para acompanhar o andamento da operação.",
+    "Insights":"Análises",
+    "A monthly view of how each driver and depot is performing on the key operational measures.":"Uma visão mensal do desempenho de cada motorista e depósito nos principais indicadores operacionais.",
+    "Requests":"Solicitações",
+    "Create and follow your own Day Off, Holiday and Pre-Payment requests. The dedicated Requests Inbox is not in the Supervisor workspace, so approval, editing and rejection are not available here.":"Crie e acompanhe suas solicitações de folga, férias e adiantamento. A caixa de entrada de solicitações não faz parte do ambiente do Supervisor, portanto aprovação, edição e recusa não estão disponíveis aqui.",
+    "Create & track":"Criar e acompanhar",
+    "Personal & monthly views":"Visões pessoais e mensais",
+    "You can open Daily Performance Insight, Current Performance, Current Month, Subcontractor, Mobile Invoice and Deductions. Deductions are restricted to your own user and service partner.":"Você pode acessar Daily Performance Insight, Current Performance, Current Month, Subcontractor, Mobile Invoice e Deductions. As deduções são limitadas ao seu próprio usuário e parceiro de serviço.",
+    "Own protected data":"Dados próprios protegidos",
+    "Daily Operations Management":"Gestão das Operações Diárias",
+    "You can manage the day's operation records too — including day-off entries — but you reach this through the Daily Game Plan, not as a separate screen of its own.":"Você também pode gerenciar os registros operacionais do dia, incluindo folgas, mas acessa essas funções pelo Daily Game Plan, e não por uma tela separada.",
+    "Through the day plan":"Pelo plano diário",
+    "What you see in the menu":"O que aparece no menu",
+    "Your allowed routes are Home, Week Planner, Daily Game Plan, Daily Operations Reports, Vendor Performance, Daily Performance Insight, Subcontractor, Deductions, Current Month, Current Performance, Mobile Invoice and Requests. The financial-management and master-data sections do not appear.":"Suas rotas permitidas são Home, Week Planner, Daily Game Plan, Daily Operations Reports, Vendor Performance, Daily Performance Insight, Subcontractor, Deductions, Current Month, Current Performance, Mobile Invoice e Requests. As seções de gestão financeira e cadastros mestres não aparecem.",
+    "What You Do Day to Day":"O Que Você Faz no Dia a Dia",
+    "The Week Planner defines the future schedule; the Daily Game Plan turns it into the real operation. You can create and adjust work in both, subject to future-date, depot-assignment, conflict and status rules.":"O Week Planner define a escala futura; o Daily Game Plan a transforma na operação real. Você pode criar e ajustar trabalhos nos dois, respeitando regras de data futura, depósito, conflitos e status.",
+    "In the Daily Game Plan — where you act":"No Daily Game Plan — onde você atua",
+    "This is your working screen. You set up the day and keep it moving as things change in the field.":"Esta é sua tela de trabalho. Você prepara o dia e mantém a operação em andamento conforme as condições mudam em campo.",
+    "Set up the day":"Preparar o dia",
+    "Create and edit the day's operations from what the week's plan shows.":"Criar e editar as operações do dia a partir do planejamento semanal.",
+    "Handle changes":"Lidar com mudanças",
+    "Deal with absences, swaps, route changes and extra demands in real time.":"Tratar ausências, trocas, mudanças de rota e demandas extras em tempo real.",
+    "Mark drivers working or off, and move each operation through its stages.":"Marcar motoristas como trabalhando ou de folga e avançar cada operação por suas etapas.",
+    "Finish the day":"Finalizar o dia",
+    "Mark pending items as finished and close the day when it is done.":"Marcar itens pendentes como finalizados e encerrar o dia quando o trabalho terminar.",
+    "The day's history is protected":"O histórico do dia é protegido",
+    "Once a day is finished it locks, so records already closed cannot be changed by mistake. Give the day a last look before you finish it.":"Depois que um dia é finalizado, ele fica bloqueado para evitar alterações acidentais. Faça uma última conferência antes de encerrá-lo.",
+    "In the Week Planner — plan and adjust":"No Week Planner — planejar e ajustar",
+    "Generate the week, edit future allocations, use drag and drop, copy to next week, add Day Off before generation, add Ad-Hoc or Not Allocated records, and finish or export the plan.":"Gere a semana, edite alocações futuras, use arrastar e soltar, copie para a próxima semana, registre folgas antes da geração, adicione registros Ad-Hoc ou não alocados e finalize ou exporte o plano.",
+    "Operational planning":"Planejamento operacional",
+    "Generate with care":"Gerar com cuidado",
+    "Generate Week combines existing active vendors, default routes and vehicles. It can leave a partial week if interrupted, so check what was created before running it again.":"O Generate Week combina prestadores ativos, rotas padrão e veículos existentes. Se for interrompido, pode deixar a semana parcialmente gerada; confira o que foi criado antes de executá-lo novamente.",
+    "Batch operation":"Operação em lote",
+    "Operational chat":"Chat operacional",
+    "Use chat to communicate with the operational team, coordinate schedule changes, clarify incidents and keep day-to-day decisions aligned.":"Use o chat para se comunicar com a equipe operacional, coordenar mudanças na escala, esclarecer ocorrências e manter as decisões diárias alinhadas.",
+    "Following Performance":"Acompanhando o Desempenho",
+    "Once the operation is running, your reports turn the day's work into a clear picture. Use them to see how the whole operation is doing, or zoom into a single driver.":"Com a operação em andamento, os relatórios transformam o trabalho do dia em uma visão clara. Use-os para analisar toda a operação ou detalhar um único motorista.",
+    "Daily Operations Insights":"Análises das Operações Diárias",
+    "A consolidated view of how the operation performed over a period — total stops, routes covered, and per-depot and per-driver numbers, all in one place. You can read it for the whole operation or filter down to the detail you need.":"Uma visão consolidada do desempenho da operação no período — total de paradas, rotas realizadas e números por depósito e motorista, tudo em um só lugar. Consulte a operação completa ou filtre o nível de detalhe necessário.",
+    "By depot":"Por depósito",
+    "By driver":"Por motorista",
+    "By period":"Por período",
+    "Total stops & routes":"Total de paradas e rotas",
+    "A monthly panel to check how drivers are doing. With nobody selected you see the whole fleet; search a name and it focuses on that one driver, showing the months they actually worked. It looks at the monthly average of a few simple measures:":"Um painel mensal para acompanhar os motoristas. Sem uma seleção, você vê toda a frota; ao pesquisar um nome, a visão é direcionada ao motorista escolhido e mostra os meses em que ele trabalhou. O painel considera a média mensal de alguns indicadores:",
+    "Punctuality":"Pontualidade",
+    "Arriving inside the expected time window.":"Chegada dentro da janela de horário esperada.",
+    "Volume":"Volume",
+    "How many packages and stops were handled.":"Quantidade de pacotes e paradas atendidos.",
+    "Pace":"Ritmo",
+    "How quickly the route was completed.":"Velocidade de conclusão da rota.",
+    "Issues":"Ocorrências",
+    "Misses, failures and other occurrences.":"Falhas, insucessos e outras ocorrências.",
+    "Availability & Access Rules":"Disponibilidade e Regras de Acesso",
+    "The Supervisor workspace is centered on operations. These functions do not appear in the available navigation and do not affect the planning, execution and reporting tasks covered by this manual.":"O ambiente do Supervisor é centrado nas operações. Estas funções não aparecem na navegação disponível e não afetam as tarefas de planejamento, execução e relatórios abordadas neste manual.",
+    "Financial management":"Gestão financeira",
+    "Invoice management, financial reports, administrative deductions, disbursements and recharges are not part of your access. Your own Deductions and Mobile Invoice views remain available for consultation.":"Gestão de faturas, relatórios financeiros, deduções administrativas, desembolsos e recargas não fazem parte do seu acesso. Suas próprias telas de Deductions e Mobile Invoice continuam disponíveis para consulta.",
+    "Not available":"Não disponível",
+    "System setup":"Configuração do sistema",
+    "The workspace uses existing vendors, vehicles, contracts, routes and operational parameters. Creating or changing those master records is not available from the Supervisor screens.":"O ambiente utiliza prestadores, veículos, contratos, rotas e parâmetros operacionais existentes. A criação ou alteração desses cadastros não está disponível nas telas do Supervisor.",
+    "Master data":"Cadastros mestres",
+    "Final billing review":"Revisão final de faturamento",
+    "The final billing-preparation screen is not available. Operational reports and performance insights remain available for reviewing the work completed.":"A tela final de preparação do faturamento não está disponível. Os relatórios operacionais e as análises de desempenho continuam disponíveis para revisar o trabalho concluído.",
+    "Protected personal data":"Dados pessoais protegidos",
+    "Deductions and similar private entries are limited to your own records and service partner. Operational information remains available according to the selected depot and period.":"Deduções e registros privados semelhantes são limitados aos seus próprios dados e parceiro de serviço. As informações operacionais permanecem disponíveis conforme o depósito e o período selecionados.",
+    "Privacy":"Privacidade",
+    "Request decisions":"Decisões sobre solicitações",
+    "You can create and track requests, but the dedicated Requests Inbox is outside your whitelist. Approving, editing and rejecting requests are not available from your workspace.":"Você pode criar e acompanhar solicitações, mas a caixa de entrada dedicada fica fora da sua lista de acesso. Aprovar, editar e recusar solicitações não está disponível no seu ambiente.",
+    "Track only":"Somente acompanhamento",
+    "If you open the wrong screen":"Ao abrir uma tela não permitida",
+    "Nothing breaks. If you try to reach an area that is not yours, the system quietly returns you to the Daily Game Plan — your home base.":"Nada é afetado. Ao tentar acessar uma área indisponível, o sistema retorna automaticamente ao Daily Game Plan — sua tela principal.",
+    "How a Normal Week Flows":"Como Flui uma Semana Normal",
+    "Most weeks follow the same simple rhythm: plan, build, run, review. Here is the order you will usually work in.":"A maioria das semanas segue o mesmo ritmo: planejar, montar, executar e revisar. Esta é a ordem habitual de trabalho.",
+    "Your four steps":"Seus quatro passos",
+    "Build the week.":"Monte a semana.",
+    "Record known Day Off items, run Generate Week, check completeness, then adjust routes, vehicles, reserves and confirmed ad-hocs.":"Registre as folgas conhecidas, execute o Generate Week, confira se tudo foi criado e ajuste rotas, veículos, reservas e serviços Ad-Hoc confirmados.",
+    "Open the day.":"Abra o dia.",
+    "In the Daily Game Plan, load the planned work and add substitutions, urgent changes or last-minute ad-hocs.":"No Daily Game Plan, carregue o trabalho planejado e inclua substituições, alterações urgentes ou serviços Ad-Hoc de última hora.",
+    "Run and monitor.":"Execute e monitore.",
+    "Move operations along — from not started, to working or off, to finished — while watching the reports.":"Avance as operações — de não iniciadas para trabalhando ou de folga, até finalizadas — enquanto acompanha os relatórios.",
+    "Review and follow up.":"Revise e acompanhe.",
+    "Check operational reports and Vendor Performance, then create or track requests that still need a decision.":"Confira os relatórios operacionais e o Vendor Performance e depois crie ou acompanhe solicitações que ainda aguardam uma decisão.",
+    "Clear yesterday before today":"Resolva o dia anterior antes do atual",
+    "If any of the last seven days is still pending, the system asks you to finish it before moving on. This keeps the records complete and in order.":"Se algum dos últimos sete dias ainda estiver pendente, o sistema solicitará sua finalização antes de prosseguir. Isso mantém os registros completos e organizados.",
+    "Safety gate":"Trava de segurança",
+    "Finish closes the day":"Finalizar encerra o dia",
+    "When the day is done, finishing it hands the validated work over to the next stage. After that the day is locked, so always give it a last look before you finish.":"Quando o dia termina, a finalização envia o trabalho validado para a próxima etapa. Depois disso, o dia fica bloqueado; faça sempre uma última conferência.",
+    "Final step":"Etapa final",
+    "Tips & Common Situations":"Dicas e Situações Comuns",
+    "A few practical points to help the operation run smoothly. Each one is marked by how much it matters, so you know where to be extra careful.":"Alguns pontos práticos para manter a operação fluindo. Cada um indica seu nível de importância para mostrar onde é preciso ter mais cuidado.",
+    "How an operation moves — and locks":"Como uma operação avança — e é bloqueada",
+    "Status changes follow a fixed state machine. Once an operation is Finished it":"As mudanças de status seguem uma máquina de estados fixa. Depois que uma operação é finalizada, ela",
+    "cannot be reopened":"não pode ser reaberta",
+    "— that is the most important thing to remember.":"— esse é o ponto mais importante.",
+    "awaiting a final assignment":"aguardando alocação final",
+    "operation in progress":"operação em andamento",
+    "locked · final":"bloqueado · final",
+    "A NotAllocated operation may also move to":"Uma operação NotAllocated também pode mudar para",
+    "; OFF can return to Working. Finished has no outgoing transition.":"; OFF pode retornar para Working. Finished não possui transição de saída.",
+    "Critical · can stall the day or affect records":"Crítico · pode interromper o dia ou afetar registros",
+    "Attention · slows you down or needs care":"Atenção · pode causar atraso ou exige cuidado",
+    "Minor · a small annoyance, no real risk":"Menor · pequeno incômodo, sem risco real",
+    "No going back":"Sem voltar atrás",
+    "Once a day is closed you cannot undo it. If something is wrong after that, it has to be corrected another way. Giving each day a final check before finishing keeps the operation reliable.":"Depois que um dia é encerrado, a ação não pode ser desfeita. Se houver algum erro, será necessário corrigi-lo de outra forma. Uma última conferência antes da finalização mantém a operação confiável.",
+    "When you check the week":"Ao conferir a semana",
+    "Attention":"Atenção",
+    "Enter known Day Off records before Generate Week, or the driver may be allocated to the default route.":"Registre as folgas conhecidas antes do Generate Week; caso contrário, o motorista poderá ser alocado na rota padrão.",
+    "Critical":"Crítico",
+    "If generation is interrupted, inspect the week before retrying so you do not duplicate a partially generated schedule.":"Se a geração for interrompida, confira a semana antes de tentar novamente para não duplicar uma escala parcialmente criada.",
+    "When you run the day":"Ao conduzir o dia",
+    "A pending day in the last seven days will stop you from moving forward — clear it first.":"Um dia pendente nos últimos sete dias impedirá o avanço — resolva-o primeiro.",
+    "Bulk actions, like finishing many records at once,":"Ações em lote, como finalizar vários registros de uma vez,",
+    "cannot be undone":"não podem ser desfeitas",
+    "— confirm before you run them.":"— confirme antes de executá-las.",
+    "About the team setup":"Sobre a configuração da equipe",
+    "If a driver has no usual route or vehicle set, they":"Se um motorista não tiver rota ou veículo habitual configurado, ele",
+    "cannot be placed automatically":"não poderá ser alocado automaticamente",
+    ". Report the missing setup for correction.":". Informe a configuração ausente para que seja corrigida.",
+    "Minor":"Menor",
+    "A driver marked as \"Spare\" or inactive will not appear in the schedule. That is expected, not a bug.":"Um motorista marcado como \"Spare\" ou inativo não aparecerá na escala. Esse é o comportamento esperado.",
+    "What you might see":"O que você pode encontrar",
+    "What it means":"O que significa",
+    "\"I can't edit this day\"":"\"Não consigo editar este dia\"",
+    "The day has already passed or is already finished.":"O dia já passou ou já foi finalizado.",
+    "\"A driver vanished from the schedule\"":"\"Um motorista sumiu da escala\"",
+    "They may be inactive, missing a route or vehicle, or marked as \"Spare\".":"Ele pode estar inativo, sem rota ou veículo, ou marcado como \"Spare\".",
+    "\"The day won't open\"":"\"O dia não abre\"",
+    "There is a pending day in the last seven days, or no authorized depot leader is assigned.":"Há um dia pendente nos últimos sete dias ou nenhum líder autorizado foi atribuído ao depósito.",
+    "\"Finance doesn't show up\"":"\"A área financeira não aparece\"",
+    "Expected — finance is not part of your role.":"Comportamento esperado — a gestão financeira não faz parte da sua função.",
+    "\"It sent me back to the Daily Game Plan\"":"\"O sistema me enviou de volta ao Daily Game Plan\"",
+    "You opened an area that is not yours; it just returns you home.":"Você abriu uma área indisponível e o sistema retornou à sua tela principal.",
+    "Logixsphere":"Logixsphere",
+    "— Supervisor Manual · Operations Role":"— Manual do Supervisor · Função Operacional",
+    "Supervisor Manual · Operations Role":"Manual do Supervisor · Função Operacional",
+    "Generate the week → Open the day → Run the operation → Follow performance.":"Gerar a semana → Abrir o dia → Conduzir a operação → Acompanhar o desempenho."
+  }));
+
+  const languageButtons = document.querySelectorAll('.language-switch button');
+  const translatableNodes = [];
+  const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode(node){
+      const parent = node.parentElement;
+      if(!parent || parent.closest('script, style, .language-switch')) return NodeFilter.FILTER_REJECT;
+      return node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+  while(textWalker.nextNode()){
+    const node = textWalker.currentNode;
+    translatableNodes.push({node, en:node.nodeValue});
+  }
+
+  const accessibleLabels = Array.from(document.querySelectorAll('[aria-label]')).map(element=>({
+    element,
+    en:element.getAttribute('aria-label')
+  }));
+
+  function translatedText(value){
+    const trimmed = value.trim();
+    const translation = ptTranslations.get(trimmed);
+    if(!translation) return value;
+    const start = value.match(/^\s*/)[0];
+    const end = value.match(/\s*$/)[0];
+    return start + translation + end;
+  }
+
+  function applyLanguage(lang){
+    const isPortuguese = lang === 'pt';
+    document.documentElement.lang = isPortuguese ? 'pt-BR' : 'en';
+    document.title = isPortuguese
+      ? 'Logixsphere — Manual do Supervisor'
+      : 'Logixsphere — Supervisor Manual';
+
+    translatableNodes.forEach(({node,en})=>{
+      node.nodeValue = isPortuguese ? translatedText(en) : en;
+    });
+
+    accessibleLabels.forEach(({element,en})=>{
+      element.setAttribute('aria-label', isPortuguese ? (ptTranslations.get(en) || en) : en);
+    });
+
+    const labels = isPortuguese
+      ? {language:'Idioma',left:'Rolar abas para a esquerda',right:'Rolar abas para a direita',
+         previous:'Anterior',next:'Próximo',slide:'Ir para o slide '}
+      : {language:'Language',left:'Scroll tabs left',right:'Scroll tabs right',
+         previous:'Previous',next:'Next',slide:'Go to slide '};
+    document.querySelector('.language-switch').setAttribute('aria-label',labels.language);
+    document.querySelector('.tab-arrow.prev').setAttribute('aria-label',labels.left);
+    document.querySelector('.tab-arrow.next').setAttribute('aria-label',labels.right);
+    document.querySelectorAll('.car-btn').forEach((button,index)=>{
+      button.setAttribute('aria-label',index%2===0 ? labels.previous : labels.next);
+    });
+    document.querySelectorAll('.car-dots button').forEach((button,index)=>{
+      button.setAttribute('aria-label',labels.slide+(index+1));
+    });
+
+    languageButtons.forEach(button=>{
+      const active = button.dataset.lang === lang;
+      button.classList.toggle('active',active);
+      button.setAttribute('aria-pressed',String(active));
+    });
+    try{ localStorage.setItem('manual-language',lang); }catch(error){}
+    requestAnimationFrame(updateArrows);
+  }
+
+  languageButtons.forEach(button=>{
+    button.addEventListener('click',()=>applyLanguage(button.dataset.lang));
+  });
+
   /* ---------- TABS ---------- */
   const tabs = document.querySelectorAll('.tab');
   const panels = document.querySelectorAll('.panel');
@@ -1057,6 +1402,13 @@
     window.addEventListener('resize',update);
     update();
   });
+
+  let savedLanguage = null;
+  try{ savedLanguage = localStorage.getItem('manual-language'); }catch(error){}
+  const initialLanguage = savedLanguage === 'pt' || savedLanguage === 'en'
+    ? savedLanguage
+    : (navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en');
+  applyLanguage(initialLanguage);
 
   observeCards(document.getElementById('overview'));
   revealIn(document.getElementById('overview'));
